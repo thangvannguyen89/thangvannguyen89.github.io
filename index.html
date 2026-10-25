@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#06090f">
+  <meta name="description" content="Hồ sơ cá nhân của sinh viên năm 3 ngành Công nghệ Kỹ thuật Điều khiển &amp; Tự động hóa, Trường Đại học Công nghệ Kỹ thuật Hưng Yên (UTHY).">
+  <title>[Họ tên bạn] — Hồ sơ cá nhân</title>
+  <style>
+    :root{
+      color-scheme: dark;
+      --bg:#06090f;
+      --line:#1b2837;
+      --line-strong:#2a3b4e;
+      --text:#e8eef6;
+      --text-soft:#d5e1ee;
+      --muted:#a9bacd;
+      --cyan:#22d3ee;
+      --violet:#635bff;
+      --violet-soft:#8b84ff;
+      --accent:#8fe8f7;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      font-size:16px;
+      line-height:1.65;
+      color:var(--text);
+      background:
+        radial-gradient(1100px 600px at 12% -12%,rgba(34,211,238,.10),transparent 62%),
+        radial-gradient(900px 520px at 92% -4%,rgba(99,91,255,.13),transparent 60%),
+        var(--bg);
+    }
+    .grid{
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(to right,rgba(146,180,209,.055) 1px,transparent 1px),
+        linear-gradient(to bottom,rgba(146,180,209,.055) 1px,transparent 1px),
+        linear-gradient(to right,rgba(146,180,209,.08) 1px,transparent 1px),
+        linear-gradient(to bottom,rgba(146,180,209,.08) 1px,transparent 1px);
+      background-size:36px 36px,36px 36px,180px 180px,180px 180px;
+    }
+    .page{
+      position:relative;
+      z-index:1;
+      max-width:1080px;
+      margin:0 auto;
+      padding:0 clamp(18px,5vw,40px) 36px;
+    }
+    .topbar{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:24px 0 16px;
+      border-bottom:1px solid rgba(27,40,55,.75);
+      font-size:14px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .mark{
+      flex:0 0 auto;
+      width:9px;
+      height:9px;
+      border-radius:2px;
+      background:linear-gradient(135deg,var(--cyan),var(--violet));
+      box-shadow:0 0 0 4px rgba(34,211,238,.08),0 0 14px rgba(34,211,238,.4);
+    }
+    .topbar-title{color:var(--muted)}
+    .topbar-meta{margin-left:auto;color:var(--accent);letter-spacing:.18em;white-space:nowrap}
+    .hero{
+      display:grid;
+      grid-template-columns:1fr;
+      align-items:center;
+      gap:clamp(30px,5vw,52px);
+      padding:clamp(36px,6vw,68px) 0 0;
+    }
+    .hero-id{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:22px;
+      min-width:0;
+    }
+    .avatar{
+      position:relative;
+      flex:0 0 auto;
+      width:clamp(112px,30vw,148px);
+      aspect-ratio:1/1;
+      border:2px solid transparent;
+      border-radius:50%;
+      background:
+        linear-gradient(#0a1018,#0a1018) padding-box,
+        linear-gradient(140deg,var(--cyan),var(--violet)) border-box;
+      box-shadow:0 18px 45px -25px rgba(34,211,238,.55);
+    }
+    .avatar::before{
+      content:"";
+      position:absolute;
+      inset:12px;
+      border:1px dashed rgba(34,211,238,.35);
+      border-radius:50%;
+      z-index:0;
+    }
+    .avatar::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:50%;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      transform:translate(-50%,-50%);
+      background:linear-gradient(135deg,var(--cyan),var(--violet));
+      box-shadow:0 0 0 8px rgba(34,211,238,.08),0 0 20px rgba(34,211,238,.4);
+      z-index:0;
+    }
+    .avatar img{
+      position:absolute;
+      inset:0;
+      z-index:1;
+      width:100%;
+      height:100%;
+      border-radius:50%;
+      object-fit:cover;
+      display:block;
+    }
+    .hero-copy{min-width:0}
+    .hero-copy::before{
+      content:"";
+      display:block;
+      width:56px;
+      height:3px;
+      margin-bottom:16px;
+      border-radius:2px;
+      background:linear-gradient(90deg,var(--cyan),var(--violet));
+      box-shadow:0 0 18px rgba(34,211,238,.35);
+    }
+    h1{
+      margin:0;
+      font-size:clamp(32px,7vw,56px);
+      line-height:1.04;
+      letter-spacing:-.035em;
+      font-weight:800;
+      overflow-wrap:break-word;
+    }
+    .tagline{
+      margin:14px 0 0;
+      max-width:52ch;
+      color:var(--text-soft);
+      font-size:clamp(15px,1.8vw,17px);
+      line-height:1.6;
+    }
+    .diagram{
+      position:relative;
+      min-width:0;
+      padding:18px 18px 16px;
+      border:1px solid var(--line);
+      border-radius:2px;
+      background:linear-gradient(155deg,rgba(18,28,40,.9),rgba(8,13,20,.92));
+    }
+    .diagram::before{
+      content:"";
+      position:absolute;
+      top:-1px;
+      left:-1px;
+      width:18px;
+      height:18px;
+      border-top:1px solid rgba(34,211,238,.7);
+      border-left:1px solid rgba(34,211,238,.7);
+    }
+    .diagram::after{
+      content:"";
+      position:absolute;
+      right:-1px;
+      bottom:-1px;
+      width:18px;
+      height:18px;
+      border-right:1px solid rgba(99,91,255,.7);
+      border-bottom:1px solid rgba(99,91,255,.7);
+    }
+    .diagram-label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:14px;
+      line-height:1.2;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .diagram-label::before{
+      content:"";
+      flex:0 0 auto;
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:var(--cyan);
+      box-shadow:0 0 0 3px rgba(34,211,238,.14);
+    }
+    .diagram-row{
+      position:relative;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin-top:18px;
+      padding-bottom:16px;
+    }
+    .diagram-row::after{
+      content:"";
+      position:absolute;
+      left:8%;
+      right:8%;
+      bottom:0;
+      height:12px;
+      border-left:1px dashed rgba(34,211,238,.4);
+      border-right:1px dashed rgba(34,211,238,.4);
+      border-bottom:1px dashed rgba(34,211,238,.4);
+      border-radius:0 0 8px 8px;
+    }
+    .node{
+      flex:1 1 0;
+      min-width:0;
+      padding:9px 6px;
+      border:1px solid var(--line-strong);
+      border-radius:2px;
+      background:rgba(9,15,23,.95);
+      color:var(--text-soft);
+      font-size:14px;
+      line-height:1.3;
+      text-align:center;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .node--mid{
+      border-color:rgba(34,211,238,.42);
+      background:linear-gradient(180deg,rgba(34,211,238,.18),rgba(99,91,255,.16));
+      color:#f0f6fb;
+    }
+    .wire{
+      position:relative;
+      flex:0 0 12px;
+      height:1px;
+      background:linear-gradient(90deg,rgba(34,211,238,.7),rgba(99,91,255,.7));
+    }
+    .wire::after{
+      content:"";
+      position:absolute;
+      right:0;
+      top:50%;
+      width:4px;
+      height:4px;
+      border-radius:50%;
+      background:var(--cyan);
+      transform:translateY(-50%);
+    }
+    .section{
+      min-width:0;
+      padding-top:clamp(46px,7vw,80px);
+    }
+    .sec-head{
+      display:flex;
+      align-items:center;
+      gap:clamp(10px,2.6vw,20px);
+      margin-bottom:clamp(20px,3.5vw,30px);
+    }
+    .sec-num{
+      flex:0 0 auto;
+      font-size:clamp(50px,8.6vw,84px);
+      line-height:.78;
+      font-weight:800;
+      letter-spacing:-.05em;
+      background:linear-gradient(155deg,var(--cyan) 15%,var(--violet-soft));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      -webkit-text-fill-color:transparent;
+      opacity:.9;
+    }
+    .sec-head h2{
+      margin:0;
+      font-size:clamp(22px,3.3vw,32px);
+      line-height:1.2;
+      letter-spacing:-.02em;
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .rule{
+      position:relative;
+      flex:1 1 auto;
+      min-width:18px;
+      height:1px;
+      background:linear-gradient(90deg,rgba(34,211,238,.5),rgba(139,132,255,.25) 55%,rgba(139,132,255,0));
+    }
+    .rule::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:50%;
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:var(--cyan);
+      transform:translate(-50%,-50%);
+      box-shadow:0 0 10px rgba(34,211,238,.8);
+    }
+    .intro{
+      max-width:70ch;
+      padding-left:clamp(14px,3vw,22px);
+      border-left:2px solid rgba(34,211,238,.4);
+    }
+    .intro p{
+      margin:0;
+      color:var(--text-soft);
+      font-size:clamp(16px,2vw,18px);
+      line-height:1.7;
+    }
+    .modules{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+    .module{
+      position:relative;
+      min-width:0;
+      padding:22px 22px 20px;
+      border:1px solid var(--line);
+      border-radius:2px;
+      background:linear-gradient(155deg,rgba(16,26,37,.85),rgba(8,13,20,.9));
+      overflow:hidden;
+    }
+    .module::before{
+      content:"";
+      position:absolute;
+      top:-1px;
+      left:-1px;
+      width:16px;
+      height:16px;
+      border-top:1px solid rgba(34,211,238,.55);
+      border-left:1px solid rgba(34,211,238,.55);
+    }
+    .module::after{
+      content:"";
+      position:absolute;
+      top:26px;
+      right:18px;
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:var(--violet);
+      box-shadow:0 0 10px rgba(99,91,255,.9);
+    }
+    .module-num{
+      display:block;
+      font-size:14px;
+      font-weight:700;
+      line-height:1;
+      letter-spacing:.16em;
+      color:var(--accent);
+    }
+    .module h3{
+      margin:12px 0 0;
+      padding-right:16px;
+      font-size:18px;
+      line-height:1.35;
+      letter-spacing:-.01em;
+      overflow-wrap:break-word;
+    }
+    .module p{
+      margin:7px 0 0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.55;
+    }
+    .projects{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+    .project{
+      position:relative;
+      min-width:0;
+      padding:22px;
+      border:1px solid var(--line);
+      border-radius:2px;
+      background:linear-gradient(155deg,rgba(16,26,37,.85),rgba(8,13,20,.9));
+      overflow:hidden;
+    }
+    .project::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:2px;
+      background:linear-gradient(180deg,var(--cyan),var(--violet));
+    }
+    .project h3{
+      margin:0;
+      font-size:18px;
+      line-height:1.45;
+      letter-spacing:-.01em;
+      overflow-wrap:break-word;
+    }
+    .project .sep{color:var(--muted);font-weight:400}
+    .status{
+      color:var(--accent);
+      font-weight:600;
+      white-space:nowrap;
+    }
+    .status--wip{color:#c6d4e4}
+    .project p{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.55;
+    }
+    .achievement{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      padding:20px 22px;
+      border:1px dashed rgba(169,186,205,.35);
+      border-radius:2px;
+      background:rgba(11,18,27,.7);
+    }
+    .achievement .marker{
+      flex:0 0 auto;
+      width:10px;
+      height:10px;
+      margin-top:7px;
+      border-radius:50%;
+      border:1px solid rgba(143,232,247,.9);
+      box-shadow:0 0 0 4px rgba(34,211,238,.08),0 0 12px rgba(34,211,238,.3);
+    }
+    .achievement p{
+      min-width:0;
+      margin:0;
+      color:var(--text-soft);
+      font-size:16px;
+      line-height:1.6;
+    }
+    .footer{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:12px 16px;
+      margin-top:clamp(50px,8vw,88px);
+      padding:24px 0 6px;
+      border-top:1px solid var(--line);
+      min-width:0;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:6px 12px;
+      border:1px solid rgba(34,211,238,.35);
+      border-radius:999px;
+      background:rgba(34,211,238,.07);
+      color:var(--accent);
+      font-size:14px;
+      line-height:1.2;
+    }
+    .pill::before{
+      content:"";
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:currentColor;
+    }
+    .footer p{
+      flex:1 1 260px;
+      min-width:0;
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+    }
+    .module,.project,.achievement{transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease}
+    @media (hover:hover){
+      .module:hover,.project:hover{transform:translateY(-3px);border-color:rgba(34,211,238,.42);box-shadow:0 22px 45px -32px rgba(34,211,238,.75)}
+    }
+    .wire::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:50%;
+      width:4px;
+      height:4px;
+      margin-top:-2px;
+      border-radius:50%;
+      background:#c9f7ff;
+      box-shadow:0 0 8px rgba(34,211,238,.9);
+      animation:flow 2.4s linear infinite;
+    }
+    .diagram-row .wire:nth-child(4)::before{animation-delay:1.2s}
+    @keyframes flow{0%{left:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:100%;opacity:0}}
+    .node--mid{animation:nodePulse 2.4s ease-in-out infinite}
+    @keyframes nodePulse{0%,100%{box-shadow:0 0 0 0 rgba(34,211,238,0)}50%{box-shadow:0 0 18px -4px rgba(34,211,238,.45)}}
+    .scope{margin-top:16px;padding-top:13px;border-top:1px dashed rgba(42,59,78,.9)}
+    .scope svg{display:block;width:100%;height:auto;margin-top:10px;filter:drop-shadow(0 0 5px rgba(34,211,238,.25))}
+    .scope .in{stroke:rgba(169,186,205,.45);stroke-width:1.2;stroke-dasharray:3 3;fill:none}
+    .scope .out{stroke:url(#sg);stroke-width:1.8;fill:none;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.6s .3s cubic-bezier(.3,.7,.3,1) forwards}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    .reveal.in{animation:rise .65s cubic-bezier(.2,.7,.3,1) both}
+    @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation:none!important;transition:none!important}
+      .scope .out{stroke-dashoffset:0}
+    }
+    ::selection{background:rgba(34,211,238,.28);color:#ffffff}
+    @media (min-width:620px){
+      .hero-id{flex-direction:row;align-items:center;gap:30px}
+    }
+    @media (min-width:700px){
+      .modules{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    }
+    @media (min-width:760px){
+      .projects{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    }
+    @media (min-width:1000px){
+      .hero{grid-template-columns:minmax(0,1fr) 300px;gap:56px}
+    }
+  </style>
+</head>
+<body>
+  <div class="grid" aria-hidden="true"></div>
+  <div class="page">
+    <header class="topbar">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="topbar-title">Hồ sơ cá nhân</span>
+      <span class="topbar-meta">UTHY</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="ten">
+        <div class="hero-id">
+          <div class="avatar">
+            <img src="avatar.jpg" alt="Ảnh đại diện" width="148" height="148" onerror="this.remove()">
+          </div>
+          <div class="hero-copy">
+            <h1 id="ten">[Họ tên bạn]</h1>
+            <p class="tagline">Sinh viên năm 3 ngành Công nghệ Kỹ thuật Điều khiển &amp; Tự động hóa, Trường Đại học Công nghệ Kỹ thuật Hưng Yên (UTHY).</p>
+          </div>
+        </div>
+
+        <aside class="diagram" aria-hidden="true">
+          <span class="diagram-label">Sơ đồ khối</span>
+          <div class="diagram-row">
+            <div class="node">Đầu vào</div>
+            <span class="wire"></span>
+            <div class="node node--mid">Xử lý</div>
+            <span class="wire"></span>
+            <div class="node">Đầu ra</div>
+          </div>
+          <div class="scope" aria-hidden="true">
+            <span class="diagram-label">Mô phỏng minh hoạ</span>
+            <svg viewBox="0 0 260 60" role="presentation">
+              <defs>
+                <linearGradient id="sg" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#22d3ee"/>
+                  <stop offset="1" stop-color="#8b84ff"/>
+                </linearGradient>
+              </defs>
+              <path class="in" d="M0 46 H58 V14 H260"/>
+              <path class="out" pathLength="1" d="M0 46 H58 C74 46 80 18 98 13 C116 8 128 24 146 17 C162 11 178 20 194 16 C214 12 236 16 260 15"/>
+            </svg>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section reveal" aria-labelledby="gioi-thieu">
+        <div class="sec-head">
+          <span class="sec-num" aria-hidden="true">01</span>
+          <h2 id="gioi-thieu">Giới thiệu</h2>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
+        <div class="intro">
+          <p>Mình đang học ngành Công nghệ Kỹ thuật Điều khiển &amp; Tự động hóa tại UTHY. Trang này là nơi mình lưu lại hành trình học tập và những kỹ năng đã học. Mình cũng dùng trang để giới thiệu bản thân tới nhà tuyển dụng.</p>
+        </div>
+      </section>
+
+      <section class="section reveal" aria-labelledby="ky-nang">
+        <div class="sec-head">
+          <span class="sec-num" aria-hidden="true">02</span>
+          <h2 id="ky-nang">Kỹ năng</h2>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
+        <div class="modules">
+          <article class="module">
+            <span class="module-num" aria-hidden="true">01</span>
+            <h3>Lập trình C ứng dụng</h3>
+            <p>Xây dựng chương trình C cho bài tập và đồ án môn học.</p>
+          </article>
+          <article class="module">
+            <span class="module-num" aria-hidden="true">02</span>
+            <h3>Proteus (vẽ/mô phỏng mạch)</h3>
+            <p>Vẽ nguyên lý và mô phỏng hoạt động của mạch điện tử.</p>
+          </article>
+          <article class="module">
+            <span class="module-num" aria-hidden="true">03</span>
+            <h3>AutoCAD (vẽ kỹ thuật)</h3>
+            <p>Dựng bản vẽ kỹ thuật theo yêu cầu môn học.</p>
+          </article>
+          <article class="module">
+            <span class="module-num" aria-hidden="true">04</span>
+            <h3>MATLAB/Simulink (mô phỏng hệ thống điều khiển)</h3>
+            <p>Mô phỏng và kiểm tra đáp ứng của hệ thống điều khiển.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" aria-labelledby="du-an">
+        <div class="sec-head">
+          <span class="sec-num" aria-hidden="true">03</span>
+          <h2 id="du-an">Dự án</h2>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <h3>Đồ án môn học 1 <span class="sep">—</span> <span class="status">đã hoàn thành</span></h3>
+            <p>Nội dung, vai trò và kết quả sẽ cập nhật sau.</p>
+          </article>
+          <article class="project">
+            <h3>Đồ án môn học 2 <span class="sep">—</span> <span class="status status--wip">đang thực hiện</span></h3>
+            <p>Nội dung, vai trò và kết quả sẽ cập nhật sau.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" aria-labelledby="thanh-tich">
+        <div class="sec-head">
+          <span class="sec-num" aria-hidden="true">04</span>
+          <h2 id="thanh-tich">Thành tích</h2>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
+        <div class="achievement">
+          <span class="marker" aria-hidden="true"></span>
+          <p>Chưa có thành tích có số liệu — sẽ cập nhật khi có GPA, giải thưởng, chứng chỉ.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="pill">Riêng tư</span>
+      <p>Website nội bộ, chỉ công khai khi chủ sở hữu cho phép.</p>
+    </footer>
+  </div>
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
